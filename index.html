@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tapong AI Assistant - Falam Chin Dictionary</title>
+    <title>Tapong AI Assistant - Tapong Chin Dictionary</title>
     <style>
         :root {
             --primary-color: #2563eb;
@@ -86,14 +86,9 @@
             border-radius: 12px;
             padding: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: transform 0.1s, box-shadow 0.1s;
         }
 
-        .word-card:active {
-            transform: scale(0.99);
-        }
-
-        .falam-word {
+        .tapong-word {
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary-color);
@@ -118,11 +113,11 @@
     <div class="container">
         <header>
             <h1>Tapong AI Assistant</h1>
-            <p>Falam Chin Dictionary & Phrasebook</p>
+            <p>Tapong Chin Dictionary & Phrasebook</p>
         </header>
 
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search Falam, English, or Burmese..." oninput="filterDictionary()">
+            <input type="text" id="searchInput" placeholder="Search Tapong Chin, English, or Burmese..." oninput="filterDictionary()">
         </div>
 
         <div id="resultsContainer" class="results-container">
@@ -132,25 +127,106 @@
 
     <script>
         const dictionaryData = [
-            { falam: "Zing pha", meaning: "Good morning / မင်္ဂလာနံနက်ခင်းပါ" },
-            { falam: "Vuah", meaning: "Do / လုပ်သည်" },
-            { falam: "Hawh", meaning: "Go / သွားသည်" },
-            { falam: "Ei", meaning: "Eat / စားသည်" },
-            { falam: "La sa", meaning: "Sing a Song / သီချင်းဆိုသည်" },
-            { falam: "Mang pha, zan pha", meaning: "Have a sweet dreams, good night" },
-            { falam: "It hnak", meaning: "Love, kindness, mercy / ချစ်ခြင်း၊ မေတ္တာ" },
-            { falam: "Zei si khaw?", meaning: "What / ဘာလဲ" },
-            { falam: "Celh ha", meaning: "Finish, done / ပြီးပြီ" },
-            { falam: "Ca ha", meaning: "Enough / တော်ပြီ" },
-            { falam: "Hlai", meaning: "Food / ထမင်း" },
-            { falam: "Ke", meaning: "Foot / ခြေထောက်" },
-            { falam: "Kut", meaning: "Hand / လက်" },
-            { falam: "Ra", meaning: "Come / လာသည်" },
-            { falam: "Liang", meaning: "Visit / လာလည်သည်" },
-            { falam: "Na an ing", meaning: "Appropriate, Thank You / ကျေးဇူးတင်ပါတယ်" },
-            { falam: "Ai", meaning: "Speak / စကားပြောသည်" },
-            { falam: "Lu", meaning: "Head / ဦးခေါင်း" },
-            { falam: "Hmai", meaning: "Face / မျက်နှာ" }
+            { tapong: "Zing pha", meaning: "good morning / မင်္ဂလာမနက်ခင်းပါ" },
+            { tapong: "Vuah", meaning: "Do / လုပ်သည်" },
+            { tapong: "Hawh", meaning: "Go / သွားသည်" },
+            { tapong: "Ei", meaning: "Eat / စားသည်" },
+            { tapong: "La sa", meaning: "Sing a Song / သီချင်းဆိုသည်" },
+            { tapong: "Mang pha, zan pha", meaning: "have a sweet dreams, good night / အိပ်မက်လှလှမက်ပါစေ, ကောင်းသောညပါ" },
+            { tapong: "It hnak", meaning: "love, kindness, mercy / ချစ်ခြင်း, မေတ္တာ" },
+            { tapong: "Zei si khaw?", meaning: "What / ဘာလည်း?" },
+            { tapong: "Celh ha", meaning: "Finish, done / ပြီးပြီ" },
+            { tapong: "Ca ha", meaning: "enough / တော်ပြီ" },
+            { tapong: "Hlai", meaning: "Food / ထမင်း" },
+            { tapong: "Ke", meaning: "Foot / ခြေထောက်" },
+            { tapong: "Kut", meaning: "Hand / လက်" },
+            { tapong: "Ra", meaning: "Come / လာသည်" },
+            { tapong: "Liang", meaning: "Visit / လာလည်သည်" },
+            { tapong: "Na an ing", meaning: "Appropriate, Thank You / ကျေးဇူးတင်ပါသည်" },
+            { tapong: "Ai", meaning: "speak / စကားပြောသည်" },
+            { tapong: "Lu", meaning: "Head / ဦးခေါင်း" },
+            { tapong: "Hmai", meaning: "Face / မျက်နှာ" },
+            { tapong: "Mit", meaning: "Eye / မျက်စီ" },
+            { tapong: "Hnar", meaning: "Nose / နှာခေါင်း" },
+            { tapong: "Sam", meaning: "Hair / ဆံပင်" },
+            { tapong: "Lei", meaning: "Tongue / လျှာ" },
+            { tapong: "Lei", meaning: "Buy / ဝယ်ယူသည်" },
+            { tapong: "Ni khat ni", meaning: "Monday / တင်္နလာနေ့" },
+            { tapong: "Ni hnih ni", meaning: "Tuesday / င်္အဂါနေ့" },
+            { tapong: "Ni thum ni", meaning: "Wednesday / ဗုဒ္ဓဟူးနေ့" },
+            { tapong: "Ni li ni", meaning: "Thursday / ကြာသာပတေးနေ့" },
+            { tapong: "Ni nga ni", meaning: "Friday / သောကြာနေ့" },
+            { tapong: "Ni ruk ni, ca ni ni", meaning: "Saturday / စနေနေ့" },
+            { tapong: "Ni sarih ni, ni pui ni", meaning: "Sunday / တနင်္ဂနွေနေ့" },
+            { tapong: "Kum", meaning: "Year / ခုနှစ်" },
+            { tapong: "Hla", meaning: "Month / လ" },
+            { tapong: "Ni", meaning: "Day / နေ့ရက်" },
+            { tapong: "Caan", meaning: "Time, period / အချိန်" },
+            { tapong: "Nazi", meaning: "Clock, Time / နာရီ" },
+            { tapong: "Pa", meaning: "Father, Daddy / အဖေ, ဖခင်" },
+            { tapong: "Nu", meaning: "Mother, Mommy / အမေ, မိခင်" },
+            { tapong: "U, Nau", meaning: "Brother, Sister / ညီအစ်ကို, ညီအစ်မ" },
+            { tapong: "Lian", meaning: "Big / ကြီးသော" },
+            { tapong: "Sian", meaning: "Small / သေးသော" },
+            { tapong: "Hmeh", meaning: "Curry, Dish / ဟင်း" },
+            { tapong: "Ko", meaning: "Call / ခေါ်သည်" },
+            { tapong: "Zuar", meaning: "Sell / ရောင်းသည်" },
+            { tapong: "To", meaning: "Sit Down / ထိုင်သည်" },
+            { tapong: "Ding", meaning: "Stand Up / မတ်တတ်ရပ်သည်" },
+            { tapong: "Lam", meaning: "Dance / ကသည်" },
+            { tapong: "Tum", meaning: "Play / တီးသည်" },
+            { tapong: "Ngai", meaning: "Listen, Miss / နားထောင်သည်, လွမ်းသည်" },
+            { tapong: "Pa khat ta,rang", meaning: "Uncle / ဦးလေ" },
+            { tapong: "Hming", meaning: "Name / နာမည်" },
+            { tapong: "Ar", meaning: "Chicken / ကြက်" },
+            { tapong: "Kualpaw", meaning: "Cow / နွား" },
+            { tapong: "Vok", meaning: "Pig / ဝက်" },
+            { tapong: "Naupang", meaning: "Children / ခလေး" },
+            { tapong: "Khua", meaning: "Village / ရွာ" },
+            { tapong: "Ram", meaning: "Country / နိုင်ငံ" },
+            { tapong: "Khuapui", meaning: "City / မြို့" },
+            { tapong: "Ram uk tu", meaning: "President / သမ္မတ" },
+            { tapong: "Huaitu", meaning: "Chairman, Leadership / ဥက္ကဌ, ခေါင်းဆောင်" },
+            { tapong: "Lai ngantu", meaning: "Secretary / အတွင်းရေးမှူး" },
+            { tapong: "Paisa kiltu", meaning: "Treasurer / ဘဏ္ဍာရေးမှူး" },
+            { tapong: "Pa khat", meaning: "One / တစ်" },
+            { tapong: "Pa nih", meaning: "Two / နှစ်" },
+            { tapong: "Pa thum", meaning: "Three / သုံး" },
+            { tapong: "Pa li", meaning: "Four / လေး" },
+            { tapong: "Pa nga", meaning: "Five / ငါး" },
+            { tapong: "Pa ruk", meaning: "Six / ခြောက်" },
+            { tapong: "Pa sarih", meaning: "Seven / ခုနှစ်ခု" },
+            { tapong: "Pa riat", meaning: "Eight / ရှစ်" },
+            { tapong: "Pa kua", meaning: "Nine / ကိုး" },
+            { tapong: "Pa hra", meaning: "Ten / တစ်ဆယ်" },
+            { tapong: "Kul", meaning: "Twenty / နှစ်ဆယ်" },
+            { tapong: "Suam thum", meaning: "Threety / သုံးဆယ်" },
+            { tapong: "Za", meaning: "One hundred / တစ်ရာ" },
+            { tapong: "Thuang khat", meaning: "One thousand / တစ်ထောင်" },
+            { tapong: "Pan", meaning: "Look / ကြည့်သည်" },
+            { tapong: "Hmu", meaning: "See / မြင်တွေ့သည်" },
+            { tapong: "Hmun", meaning: "Place / တည်နေရာ" },
+            { tapong: "Minit", meaning: "Minute / မိနစ်" },
+            { tapong: "Sekan", meaning: "Second / စက္ကန့်" },
+            { tapong: "Thun", meaning: "Add to, plug in / ထည့်သွင်းသည်" },
+            { tapong: "Biak, Vong", meaning: "Hold / ကိုင်သည်" },
+            { tapong: "Sa", meaning: "Meat dish / အသားဟင်း" },
+            { tapong: "Ti", meaning: "Water / ရေ" },
+            { tapong: "Mei", meaning: "Fire / မီး" },
+            { tapong: "Thing", meaning: "Wood / သစ်သား" },
+            { tapong: "In,inn", meaning: "House, home / အိမ်" },
+            { tapong: "Lo", meaning: "Frame / လယ်ယာ" },
+            { tapong: "Lai siar, siar", meaning: "Read / ဖတ်သည်" },
+            { tapong: "Biak in", meaning: "Church / ဘုရားကျောင်း" },
+            { tapong: "Pathian", meaning: "God / ဘုရား" },
+            { tapong: "Saw ngian", meaning: "Pray / ဆုတောင်းသည်" },
+            { tapong: "Hna per,par", meaning: "Work / လုပ်သည်, အလုပ်" },
+            { tapong: "Tul", meaning: "Push / တွန်းသည်" },
+            { tapong: "Duk", meaning: "Pull / ဆွဲသည်" },
+            { tapong: "Kham", meaning: "Close / ဖိတ်သည်" },
+            { tapong: "Hong", meaning: "Open / ဖွင့်သည်" },
+            { tapong: "Sa", meaning: "Hot / ပူသည်" },
+            { tapong: "Cop", meaning: "Cold / အေးသည်" }
         ];
 
         function displayResults(items) {
@@ -162,7 +238,7 @@
 
             container.innerHTML = items.map(item => `
                 <div class="word-card">
-                    <div class="falam-word">${item.falam}</div>
+                    <div class="tapong-word">${item.tapong}</div>
                     <div class="translation">${item.meaning}</div>
                 </div>
             `).join('');
@@ -176,13 +252,12 @@
             }
 
             const filtered = dictionaryData.filter(item => 
-                item.falam.toLowerCase().includes(query) || 
+                item.tapong.toLowerCase().includes(query) || 
                 item.meaning.toLowerCase().includes(query)
             );
             displayResults(filtered);
         }
 
-        // Initial load
         displayResults(dictionaryData);
     </script>
 </body>
