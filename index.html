@@ -1,104 +1,189 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapong AI Assistant - Falam Chin Dictionary</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-Project Name: Tapong AI Assistant
-Creator: Isaiah Cung
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
 
-1. Zing pha  (good morning/မင်္ဂလာမနက်ခင်းပါ)
-2.  Vuah ( Do/လုပ်သည်)
-3. Hawh (Go/သွားသည်)
-4. Ei (Eat/စားသည်)
-5. La sa (Sing a Song/သီချင်းဆိုသည်)
-6. Mang pha, zan pha (have a sweet dreams, good night / အိပ်မက်လှလှမက်ပါစေ, ကောင်းသောညပါ)
-7. It hnak (love, kindness, mercy/ ချစ်ခြင်း, မေတ္တာ)
-8. Zei si khaw? (What/ဘာလည်း?)
-9. Celh ha (Finish, done/ပြီးပြီ)
-10. Ca ha (enough/တော်ပြီ)
-11. Hlai (Food/ထမင်း)
-12. Ke (Foot/ခြေထောက်)
-13. Kut (Hand/လက်)
-14. Ra (Come/လာသည်)
-15. Liang (Visit/လာလည်သည်)
-16. Na an ing (Appropriate, Thank You/ကျေးဇူးတင်ပါသည်)
-17. Ai (speak/စကားပြောသည်)
-18. Lu (Head/ ဦးခေါင်း)
-19. Hmai (Face/မျက်နှာ)
-20. Mit (Eye/မျက်စီ)
-21. Hnar (Nose/နှာခေါင်း)
-22. Sam (Hair/ဆံပင်)
-23. Lei (Tongue/လျှာ)
-24. Lei (Buy/ဝယ်ယူသည်)
-25. Ni khat ni (Monday /တင်္နလာနေ့)
-26. Ni hnih ni (Tuesday/င်္အဂါနေ့)
-27. Ni thum ni (Wednesday/ဗုဒ္ဓဟူးနေ့)
-28. Ni li ni (Thursday/ကြာသာပတေးနေ့)
-29. Ni nga ni (Friday/သောကြာနေ့)
-30. Ni ruk ni, ca ni ni (Saturday /စနေနေ့)
-31. Ni sarih ni, ni pui ni (Sunday/တနင်္ဂနွေနေ့)
-32. Kum (Year/ခုနှစ်)
-33. Hla (Month/လ)
-34. Ni (Day/နေ့ရက်)
-35. Caan (Time, period /အချိန်)
-36. Nazi (Clock, Time,/နာရီ)
-37. Pa (Father, Daddy /အဖေ,ဖခင်)
-38. Nu (Mother, Mommy/အမေ,မိခင်)
-39. U, Nau (Brother, Sister /ညီအစ်ကို,ညီအစ်မ)
-40. Lian (Big/ကြီးသော)
-41. Sian (Small/သေးသော)
-42. Hmeh (Curry, Dish/ဟင်း)
-43. Ko (Call/ခေါ်သည်)
-44. Zuar (Sell/ရောင်းသည်)
-45. To (Sit Down/ထိုင်သည်)
-46. Ding (Stand Up/မတ်တတ်ရပ်သည်)
-47. Lam (Dance /ကသည်)
-48. Tum (Play/တီးသည်)
-49. Ngai (Listen,Miss/နားထောင်သည်,လွမ်းသည်)
-50. Pa Khat ta,rang (Uncle/ဦးလေ)
-51. Hming (Name/နာမည်)
-52. Ar (Chicken/ကြက်)
-53. Kualpaw (Cow/နွား)
-54. Vok (Pig/ဝက်)
-55. Naupang (Children/ခလေး)
-56. Khua (Village/ရွာ)
-57. Ram (Country /နိုင်ငံ)
-58. Khuapui (City/မြို့)
-59. Ram uk tu (President/သမ္မတ)
-60. Huaitu (Chairman, Leadership/ ဥက္ကဌ, ခေါင်းဆောင်)
-61. Lai ngantu (Secretary/အတွင်းရေးမှူး)
-62. Paisa kiltu (Treasurer/ဘဏ္ဍာရေးမှူး)
-63. Pa khat (One/တစ်)
-64. Pa nih (Two/နှစ်)
-65. Pa thum (Three/သုံး)
-66. Pa li (Four/လေး)
-67. Pa nga (Five/ငါး)
-68. Pa ruk (Six/ခြောက်)
-69. Pa sarih (Seven/ခုနှစ်ခု)
-70. Pa riat (Eight/ရှစ်)
-71. Pa kua (Nine/ကိုး)
-72. Pa hra (Ten/တစ်ဆယ်)
-73. Kul (Twenty/နှစ်ဆယ်)
-74. Suam thum (Threety /သုံးဆယ်)
-75. Za (One hundred/တစ်ရာ)
-76. Thuang khat (One thousand/တစ်ထောင်)
-77. Pan (Look/ကြည့်သည်)
-78. Hmu (See/မြင်တွေ့သည်)
-79. Hmun (Place/တည်နေရာ)
-80. Minit (Minute/မိနစ်)
-81. Sekan (Second/စက္ကန့်)
-82. Thun (Add to, plug in/ထည့်သွင်းသည်)
-83. Biak, Vong (Hold/ကိုင်သည်)
-84. Sa (Meat dish/အသားဟင်း)
-85. Ti (Water /ရေ)
-86. Mei (Fire/မီး)
-87. Thing (Wood/သစ်သား)
-88. In,inn (House,home/အိမ်)
-89. Lo (Frame/လယ်ယာ)
-90. Lai siar, siar (Read/ဖတ်သည်)
-91. Biak in (Church/ဘုရားကျောင်း)
-92. Pathian (God/ဘုရား)
-93. Saw ngian (Pray/ဆုတောင်းသည်)
-94. Hna per,par (Work/လုပ်သည်,အလုပ်)
-95. Tul (Push/တွန်းသည်)
-97. Duk (Pull/ဆွဲသည်)
-98. Kham (Close/ဖိတ်သည်)
-99. Hong (Open/ဖွင့်သည်)
-100. Sa (Hot/ပူသည်)
-101. Cop (Cold/အေးသည်)
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+            background: var(--card-bg);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .results-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .word-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .word-card:active {
+            transform: scale(0.99);
+        }
+
+        .falam-word {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .translation {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Tapong AI Assistant</h1>
+            <p>Falam Chin Dictionary & Phrasebook</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search Falam, English, or Burmese..." oninput="filterDictionary()">
+        </div>
+
+        <div id="resultsContainer" class="results-container">
+            <!-- Dictionary items will load here -->
+        </div>
+    </div>
+
+    <script>
+        const dictionaryData = [
+            { falam: "Zing pha", meaning: "Good morning / မင်္ဂလာနံနက်ခင်းပါ" },
+            { falam: "Vuah", meaning: "Do / လုပ်သည်" },
+            { falam: "Hawh", meaning: "Go / သွားသည်" },
+            { falam: "Ei", meaning: "Eat / စားသည်" },
+            { falam: "La sa", meaning: "Sing a Song / သီချင်းဆိုသည်" },
+            { falam: "Mang pha, zan pha", meaning: "Have a sweet dreams, good night" },
+            { falam: "It hnak", meaning: "Love, kindness, mercy / ချစ်ခြင်း၊ မေတ္တာ" },
+            { falam: "Zei si khaw?", meaning: "What / ဘာလဲ" },
+            { falam: "Celh ha", meaning: "Finish, done / ပြီးပြီ" },
+            { falam: "Ca ha", meaning: "Enough / တော်ပြီ" },
+            { falam: "Hlai", meaning: "Food / ထမင်း" },
+            { falam: "Ke", meaning: "Foot / ခြေထောက်" },
+            { falam: "Kut", meaning: "Hand / လက်" },
+            { falam: "Ra", meaning: "Come / လာသည်" },
+            { falam: "Liang", meaning: "Visit / လာလည်သည်" },
+            { falam: "Na an ing", meaning: "Appropriate, Thank You / ကျေးဇူးတင်ပါတယ်" },
+            { falam: "Ai", meaning: "Speak / စကားပြောသည်" },
+            { falam: "Lu", meaning: "Head / ဦးခေါင်း" },
+            { falam: "Hmai", meaning: "Face / မျက်နှာ" }
+        ];
+
+        function displayResults(items) {
+            const container = document.getElementById('resultsContainer');
+            if (items.length === 0) {
+                container.innerHTML = `<div class="no-results">No matching words found</div>`;
+                return;
+            }
+
+            container.innerHTML = items.map(item => `
+                <div class="word-card">
+                    <div class="falam-word">${item.falam}</div>
+                    <div class="translation">${item.meaning}</div>
+                </div>
+            `).join('');
+        }
+
+        function filterDictionary() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!query) {
+                displayResults(dictionaryData);
+                return;
+            }
+
+            const filtered = dictionaryData.filter(item => 
+                item.falam.toLowerCase().includes(query) || 
+                item.meaning.toLowerCase().includes(query)
+            );
+            displayResults(filtered);
+        }
+
+        // Initial load
+        displayResults(dictionaryData);
+    </script>
+</body>
+</html>
